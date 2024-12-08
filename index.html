@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>План питания на неделю</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Подключение food.js -->
+    <script src="food.js"></script>
+</head>
+<body>
+
+    <div class="main-content">
+        <div class="calendar">
+            <button class="day-button" onclick="showDay('Понедельник')" oncontextmenu="return false">
+                <img src="days/понедельник.png" alt="Понедельник">
+            </button>
+            <button class="day-button" onclick="showDay('Вторник')" oncontextmenu="return false">
+                <img src="days/вторник.png" alt="Вторник">
+            </button>
+            <button class="day-button" onclick="showDay('Среда')" oncontextmenu="return false">
+                <img src="days/среда.png" alt="Среда">
+            </button>
+            <button class="day-button" onclick="showDay('Четверг')" oncontextmenu="return false">
+                <img src="days/четверг.png" alt="Четверг">
+            </button>
+            <button class="day-button" onclick="showDay('Пятница')" oncontextmenu="return false">
+                <img src="days/пятница.png" alt="Пятница">
+            </button>
+            <button class="day-button" onclick="showDay('Суббота')" oncontextmenu="return false">
+                <img src="days/суббота.png" alt="Суббота">
+            </button>
+            <button class="day-button" onclick="showDay('Воскресенье')" oncontextmenu="return false">
+                <img src="days/воскресенье.png" alt="Воскресенье">
+            </button>
+        </div>
+
+        <div id="meal-plan" class="meal-plan">
+            <!-- Данные о приеме пищи будут отображаться здесь -->
+        </div>
+    </div>
+
+    <!-- Запрет выделения текста -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Отключаем выделение текста для всех кнопок
+            document.querySelectorAll('.day-button, .info-button, .close-button').forEach(button => {
+                button.onselectstart = () => false;
+                button.style.userSelect = 'none';
+            });
+
+            // Отключаем контекстное меню для кнопок
+            document.querySelectorAll('.day-button, .info-button, .close-button').forEach(button => {
+                button.addEventListener('contextmenu', event => event.preventDefault());
+            });
+        });
+    </script>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+/* Основной стиль страницы */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-image: url('interface/background.png'); /* Добавляем фоновое изображение */
+    background-size: cover; /* Изображение растягивается или обрезается, чтобы покрыть весь экран */
+    background-position: center; /* Центрируем фон */
+    background-repeat: no-repeat; /* Фон не повторяется */
+    background-attachment: fixed; /* Фон фиксирован, не прокручивается */
+    user-select: none; /* Запрещаем выделение текста на всем сайте */
+    -webkit-user-drag: none; /* Отключаем возможность перетаскивания контента */
+    -moz-user-drag: none;
+    -ms-user-drag: none;
+}
+
+/* Оформление заголовка */
+header {
+    background: none;
+    color: transparent; /* Убираем надпись */
+    padding: 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    display: none; /* Прячем заголовок, если он не нужен */
+}
+
+/* Основной контейнер */
+.main-content {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px; /* Ограничиваем максимальную ширину для всех экранов */
+    margin: 0 auto; /* Центрируем контейнер */
+}
+
+/* Кнопки дней */
+.calendar {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.day-button {
+    border: none;
+    padding: 0;
+    margin: 10px;
+    cursor: pointer;
+    background: transparent;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.day-button:hover {
+    transform: scale(1.1); /* Увеличиваем кнопку на 10% при наведении */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0,); /* Тень при наведении */
+}
+
+.day-button img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+/* Стиль плана питания */
+.meal-plan {
+    width: 100%;
+    max-width: 600px; /* Уменьшаем максимальную ширину для больших экранов */
+    height: auto;
+    text-align: left;
+    padding: 0px;
+    background-image: url('interface/fon.png'); /* Фоновое изображение */
+    background-size: 100% 100%; /* Фон растягивается на весь контейнер */
+    background-position: center; /* Центрируем фон */
+    background-repeat: no-repeat; /* Фон не повторяется */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0,);
+    color: #fff;
+    overflow-y: auto; /* Добавляем прокрутку, если содержимое превышает высоту */
+}
+
+/* Стиль элементов питания */
+.meal-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Контейнер кнопки */
+.button-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+/* Стиль кнопки "Доп. информация" */
+.info-button {
+    background: none;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    user-select: none; /* Запрещаем выделение кнопки */
+    transition: transform 0.3s ease; /* Анимация увеличения */
+}
+
+.info-button:hover {
+    transform: scale(1.1); /* Увеличиваем кнопку при наведении */
+}
+
+.info-icon {
+    width: 100px; /* Уменьшенный размер кнопки для ПК */
+    height: 100px;
+    object-fit: contain; /* Сохраняем пропорции изображения */
+    pointer-events: none; /* Отключаем взаимодействие с изображением */
+}
+
+/* Стиль кнопки "Закрыть" */
+.close-button {
+    background: none;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    user-select: none; /* Запрещаем выделение кнопки */
+    transition: transform 0.3s ease; /* Анимация увеличения */
+}
+
+.close-button:hover {
+    transform: scale(1.1); /* Увеличиваем кнопку при наведении */
+}
+
+.close-icon {
+    width: 100px; /* Уменьшенный размер кнопки для ПК */
+    height: 100px;
+    object-fit: contain; /* Сохраняем пропорции изображения */
+    pointer-events: none; /* Отключаем взаимодействие с изображением */
+}
+
+/* Фиксированный футер */
+footer {
+    background: none;
+    color: transparent;
+    padding: 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Адаптивная верстка */
+@media (max-width: 600px) {
+    .meal-plan {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .meal-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .info-icon, .close-icon {
+        width: 75px; /* Увеличиваем кнопки в 1.5 раза */
+        height: 75px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1200px) {
+    .meal-plan {
+        padding: 15px;
+    }
+
+    .meal-item {
+        margin-bottom: 15px;
+    }
+
+    .info-icon, .close-icon {
+        width: 100px; /* Увеличиваем кнопки в 1.5 раза */
+        height: 100px;
+    }
+}
+
+@media (min-width: 800px) {
+    .meal-plan {
+        padding: 20px;
+        max-width: 500px;
+        height: 50%; /* Уменьшаем meal plan для больших экранов */
+    }
+
+    .info-icon, .close-icon {
+        width: 150px; /* Увеличиваем кнопки для ПК в 1.5 раза */
+        height: 150px;
+    }
+}
